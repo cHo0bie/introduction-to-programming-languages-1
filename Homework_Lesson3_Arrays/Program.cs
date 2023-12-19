@@ -26,35 +26,62 @@
 // Напишите программу, которая определяет количество 
 // чётных чисел в массиве.
 
-namespace EvenNumberInArray
+// namespace EvenNumberInArray
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             int[] array = new int [10];
+//             Random random = new Random();
+//             int count = 0;
+//             for (int i = 0; i < 10; i++)
+//             {
+//                 array[i] = random.Next(1, 101);
+//                 if (array[i] >= 20 && array[i] <= 90)
+//                 {
+//                     count++;
+//                 }
+//             }
+// Console.WriteLine(String.Join(", ", array));
+//             int evenCount = 0;
+
+//             foreach (int number in array)
+//             {
+//                 if (number % 2 == 0)
+//                 {
+//                     evenCount++;
+//                 }
+//             }
+
+// Console.WriteLine($"Колличество четных чисел:  {evenCount}");
+//         }
+//     }
+// }
+
+//=================================================================
+
+// Задача 3: Задайте массив из вещественных чисел с 
+// ненулевой дробной частью. Найдите разницу между 
+// максимальным и минимальным элементов массива.
+
+using System;
+
+class Program
 {
-    class Program
+    static void Main()
     {
-        static void Main(string[] args)
-        {
-            int[] array = new int [10];
-            Random random = new Random();
-            int count = 0;
-            for (int i = 0; i < 10; i++)
-            {
-                array[i] = random.Next(1, 101);
-                if (array[i] >= 20 && array[i] <= 90)
-                {
-                    count++;
-                }
-            }
-Console.WriteLine(String.Join(", ", array));
-            int evenCount = 0;
+        Random rnd = new Random();
+        double[] array = Enumerable.Range(0, 10).Select(x => rnd.NextDouble() * 10 - 5).ToArray();
 
-            foreach (int number in array)
-            {
-                if (number % 2 == 0)
-                {
-                    evenCount++;
-                }
-            }
+        double minValue = array.Min();
+        double maxValue = array.Max();
 
-Console.WriteLine($"Колличество четных чисел:  {evenCount}");
-        }
+        double difference = maxValue - minValue;
+
+        Console.WriteLine("Минимальный элемент: " + minValue);
+        Console.WriteLine("Максимальный элемент: " + maxValue);
+        Console.WriteLine("Разница между ними: " + difference);
+
     }
 }
