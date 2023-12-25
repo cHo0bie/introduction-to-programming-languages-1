@@ -51,41 +51,71 @@
 // с наименьшей суммой элементов.
 
 
-using System;
+// using System;
 
-namespace MinSumRow
+// namespace MinSumRow
+// {
+//     class Program
+//     {
+//         static void Main(string[] args)
+//         {
+//             // Создание прямоугольного двумерного массива
+//             int[,] array = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
+
+//             // Нахождение строки с наименьшей суммой элементов
+//             int minSumRow = 0;
+//             int minSum = int.MaxValue;
+//             for (int i = 0; i < array.GetLength(0); i++)
+//             {
+//                 int sum = 0;
+//                 for (int j = 0; j < array.GetLength(1); j++)
+//                 {
+//                     sum += array[i, j];
+//                 }
+//                 if (sum < minSum)
+//                 {
+//                     minSum = sum;
+//                     minSumRow = i;
+//                 }
+//             }
+
+//             // Вывод строки с наименьшей суммой элементов
+//             Console.WriteLine("Строка с наименьшей суммой элементов:");
+//             for (int j = 0; j < array.GetLength(1); j++)
+//             {
+//                 Console.Write(array[minSumRow, j] + " ");
+//             }
+//             Console.WriteLine();
+//         }
+//     }
+// }
+
+//============================================================
+
+// Задача 2:Задайте двумерный массив. 
+// Напишите программу, которая поменяет местами 
+// первую и последнюю строку массива.
+
+
+int[,] array = new int[,]
 {
-    class Program
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 },
+    { 10, 11, 12 }
+};
+
+// Поменяем местами первую и последнюю строку.
+int[] temp = array[0];
+array[0] = array[array.GetLength(0) - 1];
+array[array.GetLength(0) - 1] = temp;
+
+// Выведем массив на консоль.
+for (int i = 0; i < array.GetLength(0); i++)
+{
+    for (int j = 0; j < array.GetLength(1); j++)
     {
-        static void Main(string[] args)
-        {
-            // Создание прямоугольного двумерного массива
-            int[,] array = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
-
-            // Нахождение строки с наименьшей суммой элементов
-            int minSumRow = 0;
-            int minSum = int.MaxValue;
-            for (int i = 0; i < array.GetLength(0); i++)
-            {
-                int sum = 0;
-                for (int j = 0; j < array.GetLength(1); j++)
-                {
-                    sum += array[i, j];
-                }
-                if (sum < minSum)
-                {
-                    minSum = sum;
-                    minSumRow = i;
-                }
-            }
-
-            // Вывод строки с наименьшей суммой элементов
-            Console.WriteLine("Строка с наименьшей суммой элементов:");
-            for (int j = 0; j < array.GetLength(1); j++)
-            {
-                Console.Write(array[minSumRow, j] + " ");
-            }
-            Console.WriteLine();
-        }
+        Console.Write(array[i, j] + " ");
     }
+    Console.WriteLine();
 }
