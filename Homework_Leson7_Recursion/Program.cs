@@ -29,24 +29,59 @@
 // рекурсию, не использовать циклы.
 
 
+// using System;
+
+// class Program
+// {
+//     static void Main()
+//     {
+//         int[] array = { 1, 2, 3, 4, 5 };
+//         PrintReverse(array, array.Length - 1);
+//     }
+
+//     static void PrintReverse(int[] array, int index)
+//     {
+//         if (index < 0)
+//         {
+//             return;
+//         }
+
+//         Console.WriteLine(array[index]);
+//         PrintReverse(array, index - 1);
+//     }
+// } 
+
+//==========================================================
+
+// Задача 2: Напишите программу вычисления функции Аккермана 
+// с помощью рекурсии. Даны два неотрицательных числа m и n.
+
 using System;
 
-class Program
+namespace AckermannFunction
 {
-    static void Main()
+    class Program
     {
-        int[] array = { 1, 2, 3, 4, 5 };
-        PrintReverse(array, array.Length - 1);
-    }
-
-    static void PrintReverse(int[] array, int index)
-    {
-        if (index < 0)
+        static int Ackermann(int m, int n)
         {
-            return;
+            if (m == 0)
+                return n + 1;
+            else if (n == 0)
+                return Ackermann(m - 1, 1);
+            else
+                return Ackermann(m - 1, Ackermann(m, n - 1));
         }
 
-        Console.WriteLine(array[index]);
-        PrintReverse(array, index - 1);
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите не отрицательное число m и n для функции Аккермана:");
+            Console.Write("m: ");
+            int m = int.Parse(Console.ReadLine());
+            Console.Write("n: ");
+            int n = int.Parse(Console.ReadLine());
+
+            int result = Ackermann(m, n);
+            Console.WriteLine($"Результат вычисления функции Аккермана A({m}, {n}) = {result}");
+        }
     }
-} 
+}
